@@ -1,212 +1,554 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Cooking With Fire</title>
-  <!-- bootstrap code -->
-  <div class ="null">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .col-md-6r {
+            position: relative;
+            min-height: 1px;
+            padding-left: -15px;
+            padding-right: 15px;
+            width: 50%;
+            float:left;
+        }
+        .row {
+            padding-top: 25px;
+            margin-bottom: -15px;
+        }
+        .row1 {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-left: -10px;
+        }
+        .textbg {
+            background: url(http://www.pixelstalk.net/wp-content/uploads/2016/04/Smoke-wrinkles-gray-light-blurred-backgrounds.jpg) 0px 750px;
+            color: red;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            font-weight: bold;
+            font-family: arial, helvetica;
+            font-size:45px;
+        }
+    </style>
+    <!-- bootstrap plugins -->
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/formValidation.min.css" rel="stylesheet">
     <link href="css/morris.css" rel="stylesheet">
-  </div>
-  <style>
-
-  #S2P2 {
-    padding-top: 30px;
-  }
-  .row {
-    padding-top: 50px;
-  }
-
-  </style>
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/formValidation.min.js"></script>
+    <script src="js/framework/bootstrap.min.js"></script>
+    <script src="js/raphael-min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+    jQuery('.carousel[data-type="multi"] .item').each(function(){
+        var next = jQuery(this).next();
+        if (!next.length) {
+            next = jQuery(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo(jQuery(this));
+        for (var i=0;i<2;i++) {
+            next=next.next();
+            if (!next.length) {
+                next = jQuery(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+    });
+    </script>
+    <title>Cuisine Origins</title>
 </head>
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <!-- bootstrap code -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Cusine Origins</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#section1">Home</a></li>
+                    <li><a href="#section2">Gallery</a></li>
+                    <li><a href="#section3">Recipe of the Month</a></li>
+                    <li><a href="#section4">Popularity Rankings</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
 
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Cuisine Origins</a>
-      </div>
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#section1">Welcome to our site!</a></li>
-          <li><a href="#section2">Browse our recipes!</a></li>
-          <li><a href="#section3">Dish of the month</a></li>
-          <li><a href="#section4">Gallery</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </nav>
 
-  <div class="container">
-
-    <!-- Section 1: Picture & Text  -->
-    <div id="section1" class="row">
-      <h1> Welcome to our website! </h1>
-      <div class="col-md-6">
-        <img src="images/stuff.jpg" class="img-responsive" alt="you need a image called stuff.jpg in a folder called images">
-      </div>
-      <div class="col-md-6">
-        <p> Welcome to our brand spanking new website! Here you can find cusisine from all across the world ready to be
+        <!-- Section 1: Picture & Text  -->
+        <div id="section1" class="row">
+            <h1 class="textbg">Home</h1>
+            <div class="col-md-6">
+            <img src="http://projects.aljazeera.com/2014/world-cup-food/images/lead.jpg" class="img-responsive" style="height:300px;width:500px" alt="IMG ERROR!">
+            </div>
+            <div class="col-md-6">
+            <p class="jumbotron" style="font-size:17px">Welcome to our brand spanking new website! Here you can find cusisine from all across the world ready to be
           explored at your leisure. We allow our users to browse and contribute to our listed recipes. You can also
           upload your own recipes! We'll also offer statistics on which recipes such as popularity, difficulty and
           cooking time.
 
-          Please enjoy your visit here. Let us all explore the world of cuisine as one big community!
-          </p>
-      </div>
+          Please enjoy your visit here. Let us all explore the world of cuisine as one big community!</p>
+            </div>
+
+        </div>
+        <!-- Section 2: Four Pictures -->
+        <div id="section2" class="row">
+            <h1 class="textbg"> Gallery </h1>
+            <div class="container text-center">
+            <div class="carousel slide row1" data-ride="carousel" data-type="multi" data-interval="10000" id="fcarousel">
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="col-md-3 col-sm-4 col-xs-12"><a href="#"><img src="https://i.ytimg.com/vi/gfhfsBPt46s/maxresdefault.jpg" class="img-responsive" style="height:225px;width:250px" alt="image"></a></div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-3 col-sm-4 col-xs-12"><a href="#"><img src="http://images-gmi-pmc.edge-generalmills.com/d6555a9d-686b-4341-9260-f3d337089802.jpg" class="img-responsive" style="height:225px;width:250px" alt="image"></a></div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-3 col-sm-4 col-xs-12"><a href="#"><img src="http://3.bp.blogspot.com/-Yj3_o_TWJo0/VSbGSivygoI/AAAAAAAAHlw/9y2kHmboWTU/s1600/IMG_2106.JPG" class="img-responsive" style="height:225px;width:250px" alt="image"></a></div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-3 col-sm-4 col-xs-12"><a href="#"><img src="http://cdn-image.foodandwine.com/sites/default/files/200901-r-xl-spinach-and-pork-wontons.jpg" class="img-responsive" style="height:225px;width:250px" alt="image"></a></div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-3 col-sm-4 col-xs-12"><a href="#"><img src="http://www.skinnytaste.com/wp-content/uploads/2011/05/Shaking-Beef-550x367.jpg" class="img-responsive" style="height:225px;width:250px" alt="image"></a></div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-3 col-sm-4 col-xs-12"><a href="#"><img src="http://www.blameitonthefood.com/wp-content/uploads/2010/06/American-Chopped-Salad-3.jpg" class="img-responsive" style="height:225px;width:250px" alt="image"></a></div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#fcarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                <a class="right carousel-control" href="#fcarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+            </div>
+            </div>
+        </div>
+        <div id="section2p1" class="row">
+            <div class="col-md-6">
+                <p class="jumbotron" style="font-size:17px">Here you can gaze at a small sample of our various dishes. We strive to acquire
+                  fine images of cuisine from across the globe. Our site is geared towards a select few cuisine at the moment, but we intend
+                  to add more as we grow. Please notify us of higher quality images if you happen to find them or take them yourself! </p>
+            </div>
+            <div class="col-md-6r jumbotron" style="padding-left:40px">
+                <b style="font-size:20px;">Cuisines</b>
+                <ol>
+                    <li>American</li>
+                    <li>Chinese</li>
+                    <li>Vietnamese</li>
+                    <li>Italian</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- Section 3: Video & Text -->
+        <div id="section3" class="row">
+            <h1 class="textbg"> Recipe of the Month </h1>
+                <div class="col-md-6">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="https://player.vimeo.com/video/162991951" width="640" height="360" allowfullscreen></iframe>
+                    </div>
+                </div>
+            <div class="col-md-6">
+                <div class="jumbotron">
+                    <b style="font-size:20px;">Fettuccine Alfredo</b>&nbsp;&nbsp;[Cooking Time - 25min]
+                    <!-- Trigger the modal with a button -->
+                    <button type="button" class="btn btn-link" data-toggle="modal" data-target="#myModal">Click here to view Recipe</button>
+                </div>
+                <div class="col-md12">
+                    <div class="jumbotron">
+                        <b style="font-size:18px;">Ingredients</b>
+                        <ul>
+                            <li>8 oz uncooked fettuccine</li>
+                            <li>1/2 cup butter or margarine</li>
+                            <li>3/4 cup shredded Parmesan cheese</li>
+                            <li>1/2 teaspoon salt</li>
+                            <li>1/8 teaspoon black or white pepper</li>
+                            <li>1/2 cup whipping cream</li>
+                            <li>Chopped fresh parsley</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 4: Table -->
+        <div id="section4" class="row">
+            <h1 class="textbg"> Popularity Ranking </h1>
+            <div class="col-md-12">
+            <div class="table-responsive">
+            <table class="table table-striped jumbotron">
+                <thead>
+                    <tr>
+                        <th>Recipe Name</th>
+                        <th>Cooking Time</th>
+                        <th>Difficulty</th>
+                        <th>Cost</th>
+                        <th>Likes</th>
+                        <th>Recipe Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fettuccine Alfredo</td>
+                        <td>25 Minutes</td>
+                        <td>Easy</td>
+                        <td>$12.75</td>
+                        <td>145</td>
+                        <!-- Trigger the modal with a button -->
+                        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View Recipe</button></td>
+                    </tr>
+                    <tr>
+                        <td>Shrimp Fra Diavolo</td>
+                        <td>30 Minutes</td>
+                        <td>Medium</td>
+                        <td>$18.90</td>
+                        <td>125</td>
+                        <!-- Trigger the modal with a button -->
+                        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal1">View Recipe</button></td>
+                    </tr>
+                    <tr>
+                        <td>Spinach-and- Pork Wontons</td>
+                        <td>50 Minutes</td>
+                        <td>Hard</td>
+                        <td>$21.50</td>
+                        <td>110</td>
+                        <!-- Trigger the modal with a button -->
+                        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal2">View Recipe</button></td>
+                    </tr>
+                    <tr>
+                        <td>Bo Luc Lac (Vietnamese Shaking Beef)</td>
+                        <td>45 Minutes</td>
+                        <td>Hard</td>
+                        <td>$23.25</td>
+                        <td>94</td>
+                        <!-- Trigger the modal with a button -->
+                        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal3">View Recipe</button></td>
+                    </tr>
+                    <tr>
+                        <td>Best Meat Lasagna</td>
+                        <td>3 Hours 15 Minutes</td>
+                        <td>Very Hard</td>
+                        <td>$26.00</td>
+                        <td>86</td>
+                        <!-- Trigger the modal with a button -->
+                        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal4">View Recipe</button></td>
+                    </tr>
+                    <tr>
+                        <td>American chopped Salad</td>
+                        <td>5 Minutes</td>
+                        <td>Very Easy</td>
+                        <td>$7.50</td>
+                        <td>51</td>
+                        <!-- Trigger the modal with a button -->
+                        <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal5">View Recipe</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Fettuccine Alfredo</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md12 jumbotron">
+                                <b style="font-size:18px;">Ingredients</b>
+                                <ul>
+                                    <li>8 oz uncooked fettuccine</li>
+                                    <li>1/2 cup butter or margarine</li>
+                                    <li>3/4 cup shredded Parmesan cheese</li>
+                                    <li>1/2 teaspoon salt</li>
+                                    <li>1/8 teaspoon black or white pepper</li>
+                                    <li>1/2 cup whipping cream</li>
+                                    <li>Chopped fresh parsley</li>
+                                </ul>
+                                <b style="font-size:18px;">Steps</b>
+                                <ol style="padding-left:40px">
+                                    <li>In large sauce pot, cook fettuccine as directed on package.</li>
+                                    <li>While fettuccine is cooking, in 2-quart saucepan, heat butter and whipping cream over low heat,
+                                    stirring constantly, until butter is melted. Stir in cheese, salt and pepper.</li>
+                                    <li>Drain fettuccine; return to sauce pot. Pour sauce over warm fettuccine; stir until fettuccine is well
+                                    coated. Sprinkle with parsley.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal1" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Shrimp Fra Diavolo</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md12 jumbotron">
+                                <b style="font-size:18px;">Ingredients</b>
+                                <ul>
+                                    <li>8 ounces uncooked linguine</li>
+                                    <li>2 tablespoons extra-virgin olive oil, divided</li>
+                                    <li>1 1/2 tablespoons minced garlic, divided</li>
+                                    <li>1 pound medium shrimp, peeled and deveined</li>
+                                    <li>3/4 cup diced onion</li>
+                                    <li>1 teaspoon crushed red pepper</li>
+                                    <li>1/2 teaspoon dried basil</li>
+                                    <li>1/2 teaspoon dried oregano</li>
+                                    <li>2 tablespoons tomato paste</li>
+                                    <li>1 tablespoon fresh lemon juice</li>
+                                    <li>1 3/4 cups canned crushed tomatoes</li>
+                                    <li>1/4 teaspoon salt</li>
+                                    <li>1 (14.5-ounce) can diced tomatoes, drained</li>
+                                </ul>
+                                <b style="font-size:18px;">Steps</b>
+                                <ol style="padding-left:40px">
+                                    <li>Cook pasta according to package directions, omitting salt and fat. Drain; keep warm.</li>
+                                    <li>While pasta cooks, heat 1 tablespoon oil in a large nonstick skillet over medium-high heat.
+                                    Add 1 1/2 teaspoons garlic and shrimp; saute or 3 minutes or until shrimp are done. Remove from pan; keep warm.</li>
+                                    <li>Add remaining 1 tablespoon oil and onion to pan; saute 5 minutes or until softened.
+                                    Stir in remaining 1 tablespoon garlic, pepper, basil, and oregano; cook 1 minute, stirring constantly.
+                                    Stir in tomato paste and lemon juice; cook 1 minute or until slightly darkened.
+                                    Stir in crushed tomatoes, salt, and diced tomatoes; cook 5 minutes or until thickened.
+                                    Return shrimp to pan; cook for 2 minutes or until thoroughly heated. Serve over pasta.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal2" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Spinach-and- Pork Wontons</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md12 jumbotron">
+                                <b style="font-size:18px;">Ingredients</b>
+                                <ul>
+                                    <li>2 cups baby spinach, rinsed</li>
+                                    <li>1 tablespoon plus 1 1/2 teaspoons soy sauce</li>
+                                    <li>1 teaspoon Asian sesame oil</li>
+                                    <li>1 teaspoon dry sherry</li>
+                                    <li>1/4 teaspoon salt</li>
+                                    <li>1/4 teaspoon sugar</li>
+                                    <li>Pinch of freshly ground white pepper</li>
+                                    <li>1/4 pound ground pork</li>
+                                    <li>1 small scallion, minced</li>
+                                    <li>3/4 teaspoon minced fresh ginger</li>
+                                    <li>Cornstarch, for sprinkling</li>
+                                    <li>30 thin wonton wrappers</li>
+                                    <li>2 tablespoons of oil</li>
+                                    <li>2 tablespoons peanut oil</li>
+                                    <li>1 small garlic clove, minced</li>
+                                    <li>2 tablespoons chopped cilantro</li>
+                                </ul>
+                                <b style="font-size:18px;">Steps</b>
+                                <ol style="padding-left:40px">
+                                    <li>In a skillet, cook the spinach, stirring, until wilted; transfer to a colander and squeeze dry. Finely chop the spinach.</li>
+                                    <li>In a bowl, combine 1 1/2 teaspoons of the soy sauce, the sesame oil, sherry, salt, sugar and white pepper.
+                                    Mix in the pork, scallion, ginger and spinach. Chill for 10 minutes.</li>
+                                    <li>Dust a large baking sheet with cornstarch. Arrange 4 wonton wrappers on a work surface, keeping the other wrappers covered with plastic wrap.
+                                    Brush the edges of the wrappers with water and spoon 1 teaspoon of filling in the center of each.
+                                    Fold the wrappers diagonally over the filling to form triangles; seal. Bring the two opposite corners of the triangle together; press to seal.
+                                    Transfer to the baking sheet and cover. Repeat.</li>
+                                    <li>In a large saucepan of boiling water, simmer the wontons over moderate heat, stirring occasionally.
+                                    When they float, cook for 3 minutes longer. Drain the wontons well.</li>
+                                    <li>In a large bowl, combine the remaining soy sauce with the oil, peanut oil and garlic. Add the wontons and toss. Sprinkle with the cilantro and serve.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal3" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Bo Luc Lac (Vietnamese Shaking Beef)</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md12 jumbotron">
+                                <b style="font-size:18px;">Ingredients</b>
+                                <ul>
+                                    <li>1.5 lbs beef sirloin (or any cut you like) cut into 1? cubes</li>
+                                    <li>2 tbs minced garlic</li>
+                                    <li>1.5 tbs sugar</li>
+                                    <li>2 tbs oyster sauce</li>
+                                    <li>1 tbs fish sauce</li>
+                                    <li>1 tbs sesame oil</li>
+                                    <li>1 ts thick soy sauce</li>
+                                    <li>1/2 cup rice vinegar</li>
+                                    <li>1.5 tbs sugar</li>
+                                    <li>1/2 tbs salt</li>
+                                    <li>Juice of 1 lime</li>
+                                    <li>1/2 ts kosher salt</li>
+                                    <li>1/2 ts fresh cracked pepper</li>
+                                    <li>1 red onion, thinly sliced</li>
+                                    <li>2 bunches of watercress, long stems trimmed</li>
+                                    <li>2 tomatoes, thinly sliced</li>
+                                </ul>
+                                <b style="font-size:18px;">Steps</b>
+                                <ol style="padding-left:40px">
+                                    <li>Prepare marinade by combining garlic, oyster sauce, sugar, fish sauce, thick soy sauce and sesame oil with the beef for at least half an hour, preferably 1-2 hrs.</li>
+                                    <li>Prepare vinaigrette by mixing rice vinegar with salt and sugar. It should be a balance of sour, salty and sweet.</li>
+                                    <li>Thinly slice the red onion and use about 3-4 tbs of the vinaigrette to pickle and set aside covered in fridge for about 10 minutes.
+                                    Prepare bed of watercress and tomatoes in a serving platter and set aside.</li>
+                                    <li>Heat a large wok or pan over high heat. Add about 2 tbs cooking oil and when it begins to smoke, add an even layer of beef and allow to sear for about 2 minutes,
+                                    before �shaking� to sear the opposite sides for about another 1-2 minute more to brown all the sides.  Do this in batches to cook all the beef if necessary.</li>
+                                    <li>Transfer beef to bed of watercress and tomatoes. Drizzle another 3-4 tbs of vinaigrette over the beef and greens and top with pickled red onions.
+                                    Lastly, squeeze lime juice over salt and pepper in a small ramekin.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal4" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Best Meat Lasagna</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md12 jumbotron">
+                                <b style="font-size:18px;">Ingredients</b>
+                                <ul>
+                                    <li>1 pound sweet Italian sausage</li>
+                                    <li>3/4 pound lean ground beef</li>
+                                    <li>1/2 cup minced onion</li>
+                                    <li>2 cloves garlic, crushed</li>
+                                    <li>1 (28 ounce) can crushed tomatoes</li>
+                                    <li>2 (6 ounce) cans tomato paste</li>
+                                    <li>2 (6.5 ounce) cans canned tomato sauce</li>
+                                    <li>1/2 cup water</li>
+                                    <li>2 tablespoons white sugar</li>
+                                    <li>1 1/2 teaspoons dried basil leaves</li>
+                                    <li>1/2 teaspoon fennel seeds</li>
+                                    <li>1 teaspoon Italian seasoning</li>
+                                    <li>1 tablespoon salt</li>
+                                    <li>1/4 teaspoon ground black pepper</li>
+                                    <li>4 tablespoons chopped fresh parsley</li>
+                                    <li>12 lasagna noodles</li>
+                                    <li>16 ounces ricotta cheese</li>
+                                    <li>1 egg 1/2 teaspoon salt</li>
+                                    <li>3/4 pound mozzarella cheese, sliced</li>
+                                    <li>3/4 cup grated Parmesan cheese</li>
+                                </ul>
+                                <b style="font-size:18px;">Steps</b>
+                                <ol style="padding-left:40px">
+                                    <li>In a Dutch oven, cook sausage, ground beef, onion, and garlic over medium heat until well browned.
+                                    Stir in crushed tomatoes, tomato paste, tomato sauce, and water. Season with sugar, basil, fennel seeds, Italian seasoning, 1 tablespoon salt, pepper, and 2 tablespoons parsley.
+                                    Simmer, covered, for about 1 1/2 hours, stirring occasionally.</li>
+                                    <li>Bring a large pot of lightly salted water to a boil. Cook lasagna noodles in boiling water for 8 to 10 minutes.
+                                    Drain noodles, and rinse with cold water. In a mixing bowl, combine ricotta cheese with egg, remaining parsley, and 1/2 teaspoon salt.</li>
+                                    <li>Preheat oven to 375 degrees F (190 degrees C).</li>
+                                    <li>To assemble, spread 1 1/2 cups of meat sauce in the bottom of a 9x13 inch baking dish. Arrange 6 noodles lengthwise over meat sauce.
+                                    Spread with one half of the ricotta cheese mixture. Top with a third of mozzarella cheese slices. Spoon 1 1/2 cups meat sauce over mozzarella,
+                                    and sprinkle with 1/4 cup Parmesan cheese. Repeat layers, and top with remaining mozzarella and Parmesan cheese.
+                                    Cover with foil: to prevent sticking, either spray foil with cooking spray, or make sure the foil does not touch the cheese.</li>
+                                    <li>Bake in preheated oven for 25 minutes. Remove foil, and bake an additional 25 minutes. Cool for 15 minutes before serving.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal5" role="dialog">
+                <div class="modal-dialog modal-lg">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">American chopped Salad</h3>
+                        </div>
+                        <div class="modal-body">
+                            <div class="col-md12 jumbotron">
+                                <b style="font-size:18px;">Ingredients</b>
+                                <ul>
+                                    <li>1/2 cos lettuce, washed</li>
+                                    <li>1/2 red onion</li>
+                                    <li>5 tomatoes</li>
+                                    <li>1/2 cucumber</li>
+                                    <li>Creamy French dressing</li>
+                                    <li>2 tablespoons extra-virgin olive oil</li>
+                                    <li>1/2 a lemon, juiced</li>
+                                    <li>Splash white wine vinegar</li>
+                                    <li>Pinch salt and freshly ground black pepper</li>
+                                </ul>
+                                <b style="font-size:18px;">Steps</b>
+                                <ol style="padding-left:40px">
+                                    <li>To make the salad, chop everything together into mouth-sized pieces.</li>
+                                    <li>Make a well in the middle of the salad and put in all the dressing ingredients then mix up.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
     </div>
-
-    <!-- Section 2: Four Pictures -->
-    <div class="two ">
-
-      <div id="section2" class="row">
-        <h1> Take a look at what we've got! </h1>
-        <div class="col-md-3">
-          <img src="images/stuff.jpg" class="img-responsive" alt="you need a image called stuff.jpg in a folder called images">
-        </div>
-        <div class="col-md-3">
-          <img src="images/stuff.jpg" class="img-responsive" alt="you need a image called stuff.jpg in a folder called images">
-        </div>
-        <div class="col-md-3">
-          <img src="images/stuff.jpg" class="img-responsive" alt="you need a image called stuff.jpg in a folder called images">
-        </div>
-        <div class="col-md-3">
-          <img src="images/stuff.jpg" class="img-responsive" alt="you need a image called stuff.jpg in a folder called images">
-        </div>
-      </div>
-      <div id="S2P2" class="row">
-      <div class="col-md-6">
-        <p> Paragraph goes here. </p>
-      </div>
-      <div class="col-md-6">
-        <ol>
-          <li> List element 1 </li>
-          <li> List element 2 </li>
-          <li> ...and so on </li>
-        </ol>
-      </div>
-    </div>
-    </div>
-
-  <!-- Section 3: Video & Text -->
-  <div id="section3" class="row">
-    <h1> Recipe of the Month :  </h1>
-    <div class="col-md-6">
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/aqPtA1_yvlI" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <p> Textarea and then... </p>
-      <div class="row">
-        <div class="col-md12">
-          <ul>
-            
-           <h3> Ingredients (3h  15 min) <h3/>
-            <li> 1 pound sweet Italian sausage </li>
-            <li> 3/4 pound lean ground beef  </li>
-            <li> 1/2 cup minced onion</li>
-            <li> 2 cloves garlic, crushed </li>
-            <li> 1 (28 ounce) can crushed tomatoes</li>
-            <li> 2 (6 ounce) cans tomato paste</li>
-            <li> 2 (6.5 ounce) cans canned tomato sauce</li>
-            <li> 1/2 cup water</li>
-            <li> 2 tablespoons white sugar</li>
-            <li> 1 1/2 teaspoons dried basil leaves</li>
-            <li> 1/2 teaspoon fennel seeds</li>
-            <li> 1 teaspoon Italian seasoning</li>
-            <li> 1 tablespoon salt</li>
-            <li> 1/4 teaspoon ground black pepper</li>
-            <li> 4 tablespoons chopped fresh parsley</li>
-            <li> 12 lasagna noodles</li>
-            <li> 16 ounces ricotta cheese</li>
-            <li> 1 egg 1/2 teaspoon salt</li>
-            <li> 3/4 pound mozzarella cheese, sliced</li>
-            <li> 3/4 cup grated Parmesan cheese</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-    <!-- Section 4: Table -->
-    <div id="section4" class="row">
-      <h1> Gallery </h1>
-      <div class="col-md-12">
-        <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-                <th>Header</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1,006</td>
-                <td>nibh</td>
-                <td>elementum</td>
-                <td>imperdiet</td>
-                <td>Duis</td>
-              </tr>
-              <tr>
-                <td>1,007</td>
-                <td>sagittis</td>
-                <td>ipsum</td>
-                <td>Praesent</td>
-                <td>mauris</td>
-              </tr>
-              <tr>
-                <td>1,013</td>
-                <td>torquent</td>
-                <td>per</td>
-                <td>conubia</td>
-                <td>nostra</td>
-              </tr>
-              <tr>
-                <td>1,014</td>
-                <td>per</td>
-                <td>inceptos</td>
-                <td>himenaeos</td>
-                <td>Curabitur</td>
-              </tr>
-              <tr>
-                <td>1,015</td>
-                <td>sodales</td>
-                <td>ligula</td>
-                <td>in</td>
-                <td>libero</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- bootstrap plugins -->
-      <div class="null">
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/formValidation.min.js"></script>
-        <script src="js/framework/bootstrap.min.js"></script>
-        <script src="js/raphael-min.js"></script>
-        <script src="js/morris.min.js"></script>
-      </div>
-    </body>
-
-    </html>
+    <footer class="footer jumbotron" style="text-align:center;">
+        <p class="footer-company-name" style="font-size:20px">Cusine Origins &copy; 2016</p>
+    </footer>
+</body>
+</html>
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help
