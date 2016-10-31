@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="http://cdn.oesmith.co.uk/morris-0.4.1.min.js"></script>
+<meta charset=utf-8 />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .col-md-6r {
+            position: relative;
+            min-height: 1px;
+            padding-left: -15px;
+            padding-right: 15px;
+            width: 50%;
+            float:left;
+        }
+        .row {
+            padding-top: 25px;
+            margin-bottom: -15px;
+        }
+        .row1 {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            margin-left: -10px;
+        }
+        .textbg {
+            background: url(http://65.media.tumblr.com/64718993f98e606f540ef468f4b60717/tumblr_o0yhouvdqM1sqcorto1_1280.jpg) 600px 800px;
+            color: red;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            font-weight: bold;
+            font-family: arial, helvetica;
+            font-size:45px;
+        }
+        .pad-below{
+            padding-bottom: 20px;
+        }
+        .pad-else{
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    </style>
+    <!-- bootstrap plugins -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/formValidation.min.css" rel="stylesheet">
+    <link href="css/morris.css" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/formValidation.min.js"></script>
+    <script src="js/framework/bootstrap.min.js"></script>
+    <script src="js/raphael-min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <script>
+    jQuery(document).ready(function() {
+    jQuery('.carousel[data-type="multi"] .item').each(function(){
+        var next = jQuery(this).next();
+        if (!next.length) {
+            next = jQuery(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo(jQuery(this));
+
+        for (var i=0;i<2;i++) {
+            next=next.next();
+            if (!next.length) {
+                next = jQuery(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
+    });
+    </script>
+    <title>Cuisine Origins</title>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Forms  -->
+        <div id="forms" class="row">
+            <h1 class="textbg">Form</h1>
+            <form id="demo">
+      <div class="form-group">
+          <input type="text" class="form-control" name="username" placeholder="Username" />
+      </div>
+
+      <div class="form-group">
+          <input type="password" class="form-control" name="password" placeholder="Password" />
+      </div>
+
+      <div class="form-group">
+          <input type="email" class="form-control" name="email" placeholder="Email" />
+      </div>
+
+      <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+      <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+</div>
+
+  <script>
+  $(document).ready(function() {
+      $('#demo').formValidation({
+          framework: 'bootstrap4',
+          icon: {
+              valid: 'fa fa-check',
+              invalid: 'fa fa-times',
+              validating: 'fa fa-refresh'
+          },
+          fields: {
+              username: {
+                  validators: {
+                      notEmpty: {
+                          message: 'The username is required'
+                      },
+                      stringLength: {
+                          min: 6,
+                          max: 30,
+                          message: 'The username must be more than 6 and less than 30 characters long'
+                      },
+                      regexp: {
+                          regexp: /^[a-zA-Z0-9_]+$/,
+                          message: 'The username can only consist of alphabetical, number and underscore'
+                      }
+                  }
+              },
+              password: {
+                  validators: {
+                      notEmpty: {
+                          message: 'The password is required'
+                      }
+                  }
+              }
+              email: {
+                  validators: {
+                      notEmpty: {
+                          message: 'The password is required'
+                      },
+                      emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
+                  }
+              }
+          }
+      });
+  });
+  </script>
+
+
+
+
+        <!-- Graph-->
+        <div id="graph" class="row">
+            <h1 class="textbg"> Graph </h1>
+            <div class="col-md-6">
+              <div id="line-example"></div>
+              <script>
+
+Morris.Line({
+  element: 'line-example',
+  data: [
+    { y: '2006', a: 100, v: 90, i: 30, c: 30 },
+    { y: '2007', a: 75,  v: 65, i: 40, c: 40 },
+    { y: '2008', a: 50,  v: 40, i: 20, c: 50 },
+    { y: '2009', a: 75,  v: 65, i: 50, c: 60 },
+    { y: '2010', a: 50,  v: 40, i: 60, c: 70 },
+    { y: '2011', a: 75,  v: 65, i: 40, c: 80 },
+    { y: '2012', a: 100, v: 80, i: 10, c: 90 }
+  ],
+  xkey: 'y',
+  ykeys: ['a', 'v', 'i', 'c' ],
+  labels: ['American', 'Italian', 'Vietnamese', 'Chinese']
+});
+              </script>
+            </div>
+            <div class="col-md-6">
+              <div id="donut-example"> </div>
+              <script>
+              Morris.Donut({
+  element: 'donut-example',
+  data: [
+    {label: "Italian", value: 12},
+    {label: "Chinese", value: 30},
+    {label: "Vietnamese", value: 20},
+    {label: "American", value: 33}
+  ]
+});
+</script>
+            </div>
+
+
+        </div>
+
+    </div>
+    <footer class="footer jumbotron" style="text-align:center;">
+        <p class="footer-company-name" style="font-size:20px">Cusine Origins &copy; 2016</p>
+    </footer>
+</body>
+</html>
