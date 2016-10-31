@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- CSS stylesheet code -->
+<style>
+    .nodot{
+        list-style:none;
+    }
+    .col-md-6r {
+        position: relative;
+        min-height: 1px;
+        padding-left: -15px;
+        padding-right: 15px;
+        width: 50%;
+        float:left;
+    }
+    .row {
+        padding-top: 25px;
+        margin-bottom: -15px;
+    }
+    .row1 {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-left: -10px;
+    }
+    .textbg {
+        font-weight: bold;
+        font-family: arial, helvetica;
+        font-size:45px;
+        background: url(images/textbg.jpg) 600px 800px;
+        color: red;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+    .pad-below{
+        padding-bottom: 20px;
+    }
+    .pad-else{
+        padding-top: 100px;
+        padding-left: 10px;
+    }
+</style>
+<!-- bootstrap plugins -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/formValidation.min.css" rel="stylesheet">
+<link href="css/morris.css" rel="stylesheet">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/formValidation.min.js"></script>
+<script src="js/framework/bootstrap.min.js"></script>
+<script src="js/raphael-min.js"></script>
+<script src="js/morris.min.js"></script>
+<!-- Using Javascript to display the multiple images in a carousel -->
+<script>
+$(document).ready(function() {
+    $('#signupForm').formValidation({
+        framework: 'bootstrap',
+        icon: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+            email: {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required'
+                    },
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
+                }
+            },
+            password: {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: 'The username can only consist of alphabetical, number, and underscore'
+                    },
+                    different: {
+                        field: 'username',
+                        message: 'The password cannot be the same as username'
+                    }
+                }
+            },
+            experience: {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'The cooking experience is required'
+                    }
+                }
+            },
+            'cuisine[]': {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'Atleast one cuisine is required'
+                    }
+                }
+            },
+            gender: {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'The gender is required'
+                    }
+                }
+            },
+            comments: {
+                row: '.col-xs-4',
+                validators: {
+                    notEmpty: {
+                        message: 'Please enter some comments for this website'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+<title>Cuisine Origins</title>
+</head>
+<body>
+<!-- bootstrap code -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Cusine Origins</a>
+        </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html#section1">Home</a></li>
+                        <li><a href="index.html#section2">Gallery</a></li>
+                        <li><a href="index.html#section3">Recipe of the Month</a></li>
+                        <li><a href="index.html#section4">Popularity Rankings</a></li>
+                        <li><a href="forms.html">Forms</a></li>
+                        <li><a href="plots.html">Plots</a></li>
+                </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container pad-else">
+    <!-- Section 1: SignUp Form -->
+    <form id="signupForm" class="form-horizontal">
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Username</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" id ="username" name="username" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Email address</label>
+        <div class="col-xs-5">
+            <input type="text" class="form-control" id="email" name="email" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Password</label>
+        <div class="col-xs-5">
+            <input type="password" class="form-control" id="password" name="password" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Cooking Experience</label>
+        <div class="col-xs-3">
+            <select class="form-control" id="experience" name="experience">
+                <option >0 - 1 Years</option>
+                <option>2 - 4 Years</option>
+                <option>5 - 10 Years</option>
+                <option>11+ Years</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Which Cuisine Do You Specialize In?</label>
+        <div class="col-xs-5">
+        <div class="checkbox">
+            <label><input type="checkbox" id="cuisine[]" name="cuisine[]" value="american" /> American</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="cuisine[]" name="cuisine[]" value="chinese" /> Chinese</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="cuisine[]" name="cuisine[]" value="vietnamese" /> Vietnamese</label>
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" id="cuisine[]" name="cuisine[]" value="italian" /> Italian</label>
+        </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Gender</label>
+        <div class="col-xs-5">
+            <div class="radio">
+                <label>
+                    <input type="radio" id="gender" name="gender" value="male" /> Male
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" id="gender" name="gender" value="female" /> Female
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" id="gender" name="gender" value="other" /> Other
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-3 control-label">Comments</label>
+        <div class="col-xs-3">
+            <textarea class="form-control" id="comments" name="comments" rows="5"></textarea>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-xs-9 col-xs-offset-3">
+            <button type="submit" class="btn btn-primary" name="signup" value="signup">Sign Up</button>
+        </div>
+    </div>
+</form>
+</div>
+<!-- Copyright Footer -->
+<footer class="footer jumbotron" style="text-align:center;">
+    <p class="footer-company-name" style="font-size:20px">Cusine Origins &copy; 2016</p>
+</footer>
+</body>
+</html>
