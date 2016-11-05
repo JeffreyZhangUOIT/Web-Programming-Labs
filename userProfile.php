@@ -17,11 +17,7 @@
     padding-top: 25px;
     margin-bottom: -15px;
   }
-  .row1 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-left: -10px;
-  }
+
   .textbg {
     background: url(http://65.media.tumblr.com/64718993f98e606f540ef468f4b60717/tumblr_o0yhouvdqM1sqcorto1_1280.jpg) 600px 800px;
     color: red;
@@ -30,14 +26,6 @@
     font-weight: bold;
     font-family: arial, helvetica;
     font-size:45px;
-  }
-  .pad-below{
-    padding-bottom: 20px;
-  }
-  .pad-else{
-    padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
   </style>
   <!-- bootstrap plugins -->
@@ -72,7 +60,10 @@
     });
   });
   </script>
+
   <title>Cuisine Origins</title>
+
+  <!-- Assigns the POST data to variables -->
   <?php
   $username = htmlspecialchars($_POST['username']);
   $email = htmlspecialchars($_POST['email']);
@@ -85,7 +76,7 @@
 
 </head>
 <body>
-  <!-- bootstrap code -->
+  <!-- Navigation Bar -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -106,7 +97,6 @@
           <li><a href="recipes.html">Recipes</a></li>
           <li><a href="plots.html">Plots</a></li>
           <li><a href="register.html">Register</a></li>
-          <li><a href="userProfile.html">User Profile</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -114,9 +104,11 @@
 
   <div class="container">
 
+<!-- User Profile Page -->
     <div id="userProfile" class="row jumbotron">
       <h1 class="textbg"> <?php  echo $username; ?></h1>
 
+      <!-- User Infromation Categories -->
       <div class="col-md-4">
         <div class="form-group">
           <p> Username: <br>
@@ -128,6 +120,8 @@
           </p>
         </div>
       </div>
+
+      <!-- Category Values -->
       <div class="col-md-8">
         <div class="form-group">
           <p>
@@ -135,6 +129,7 @@
             <?php  echo $email; ?> <br>
             <?php echo $experience; ?> <br>
 
+            <!-- Loops through each value of $specialties to display them. -->
             <?php
             foreach ($specialties as $name){
               if ($first) {
@@ -158,6 +153,8 @@
       </div>
 
     </div>
+
+
     <footer class="footer jumbotron" style="text-align:center;">
       <p class="footer-company-name" style="font-size:20px">Cusine Origins &copy; 2016</p>
     </footer>
