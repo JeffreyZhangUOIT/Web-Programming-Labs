@@ -21,7 +21,11 @@ echo "
                         <li><a href=\"register.html\">Register</a></li>
                         <li><a href=\"profiles.html\">Members</a></li>
                         <li><a href=\"plots.html\">Plots</a></li>
-                        <li> <button type=\"button\" class=\"btn-lg btn-default\" data-toggle=\"modal\" data-target=\"#Login\">Login</button> </li>
+                        <li>
+                        "; if(isset($_SESSION['username']) && !empty($_SESSION['username'])) { echo "<a href=\"userProfile.php\">" . $_SESSION['username'] . '</a>'; }
+                        else { echo "<button type=\"button\" class=\"btn-lg btn-default\" data-toggle=\"modal\" data-target=\"#Login\">Login</button> ";}
+                        echo "
+                        </li>
                 </ul>
         </div><!--/.nav-collapse -->
     </div>
