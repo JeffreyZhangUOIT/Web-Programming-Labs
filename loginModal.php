@@ -1,5 +1,7 @@
 <!-- include this file to get the code for login nav bar. -->
-<?php echo "
+<?php
+session_start();
+echo "
 <style>
   /* The Modal (background) */
 .modal {
@@ -102,7 +104,4 @@ window.onclick = function(event) {
 </div>
 
 " ;
-
-
-
 ?>
