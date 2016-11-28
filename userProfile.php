@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,20 +67,44 @@
 
   <title>Cuisine Origins</title>
 
-  <!-- Assigns the POST data to variables -->
+  <!-- Grabs data from database -->
   <?php
-  $username = htmlspecialchars($_POST['username']);
-  $email = htmlspecialchars($_POST['email']);
-  $experience = htmlspecialchars($_POST['experience']);
-  $gender = htmlspecialchars($_POST['gender']);
-  $bio = htmlspecialchars($_POST['comments']);
-  $specialties = $_POST['cuisine'];
-  $first = true;
+  $db = new mysqli('localhost', 'root', '', 'lab');
+
+  // You should see sucess if you can connect
+  if($db->connect_errno > 0){
+      echo "ERROR";
+      die('Unable to connect to database [' . $db->connect_error . ']');
+  }
+  else {
+      echo "SUCCESS" . '<br />';
+  }
+  $username =$_SESSION['username'];
+  $password = $_SESSION['password'];
+  $result = $db->query("SELECT * FROM register WHERE username=\"$username\" ");
+
+  if (!$result) {
+      die('There was an error running the query[' . $db->error . ']');
+  }
+  while ($row = $result->fetch_assoc()) {
+    $username = htmlspecialchars($row['username']);
+    $email = htmlspecialchars($row['email']);
+    $experience = htmlspecialchars($row['experience']);
+    $gender = htmlspecialchars($row['gender']);
+    $bio = htmlspecialchars($row['comments']);
+    $specialties = explode(',', $row['cuisine']);
+    $first = true;
+}
   ?>
+  <script>
+  .logout {
+
+  }
+  </script>
 
 </head>
 <body>
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar  -->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
@@ -145,6 +173,9 @@
 
               <?php echo $gender; ?> <br>
               <?php echo $bio; ?> <br>
+
+            <br>
+            <button type="button" class="btn btn-default" onclick="location.href='logout.php';"" >Logout</button>
             </p>
           </div>
         </div>
